@@ -16,9 +16,11 @@ public class AccountService {
     private AccountRepository accountRepository;
 
     public boolean existAccount(Integer id) {
-
         return accountRepository.getAccountById(id) != null;
+    }
 
+    public boolean existUsername(String username) {
+        return accountRepository.getAccountByUsername(username) != null;
     }
 
     public boolean userRegister(String username, String password) {
@@ -26,6 +28,10 @@ public class AccountService {
         userAccount.setUsername(username);
         userAccount.setPassword(password);
         return accountRepository.addAccount(userAccount);
+    }
+
+    public Account getUserInfo(Integer id){
+        return accountRepository.getAccountById(id);
     }
 
     public Account authenticate(String username, String password) {
@@ -36,4 +42,6 @@ public class AccountService {
             return account;
         }
     }
+
+
 }

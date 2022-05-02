@@ -15,4 +15,9 @@
         from account
         where username = #{username}
     </select>
+    <select id="countAccountsById" resultType="java.lang.Integer">
+        select count(*)
+        from account
+        where id = #{id}
+    </select>
 </mapper>

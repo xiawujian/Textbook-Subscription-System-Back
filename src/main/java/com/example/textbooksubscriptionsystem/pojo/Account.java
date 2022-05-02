@@ -15,4 +15,6 @@ public class Account {
 
     @JsonIgnore
     private String password;
+
+    private Integer role;
 }
