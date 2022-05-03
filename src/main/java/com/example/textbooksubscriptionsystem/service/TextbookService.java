@@ -7,6 +7,8 @@ import com.example.textbooksubscriptionsystem.repository.TextbookRepository;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
+import java.util.regex.Pattern;
 
 @Service
 public class TextbookService {
@@ -17,11 +19,15 @@ public class TextbookService {
         return textbookRepository.getTextbookById(id) != null;
     }
 
+    public ArrayList<Textbook> getTextbooksByKey(String key) {
+        return textbookRepository.getTextbooksByKey(key);
+    }
+
     public boolean existName(String name) {
         return textbookRepository.getTextbookByName(name) != null;
     }
 
-    public boolean addTextbook(String name,Integer price){
+    public boolean addTextbook(String name, Double price) {
         Textbook textbook = new Textbook();
         textbook.setName(name);
         textbook.setPrice(price);

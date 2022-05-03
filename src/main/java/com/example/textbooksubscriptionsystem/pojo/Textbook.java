@@ -12,7 +12,7 @@ public class Textbook {
 
     private String name;
 
-    private String description;
+//    private String description;
 
-    private Integer price;
+    private Double price;
 }

@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.example.textbooksubscriptionsystem.repository.TextbookRepository">
     <insert id="addTextbook" useGeneratedKeys="true" keyProperty="id">
-        insert into textbook(name, price)
+        insert into textbook(`name`, price)
         values (#{name}, #{price});
     </insert>
     <select id="getTextbookById" resultType="com.example.textbooksubscriptionsystem.pojo.Textbook">
@@ -10,9 +10,24 @@
         from textbook
         where id = #{id}
     </select>
+    <select id="getTextbooksByKey" resultType="com.example.textbooksubscriptionsystem.pojo.Textbook">
+        select *
+        from textbook
+        where  `name` like concat('%', #{key}, '%')
+    </select>
     <select id="getTextbookByName" resultType="com.example.textbooksubscriptionsystem.pojo.Textbook">
         select *
         from textbook
-        where name = #{name}
+        where `name` = #{name}
     </select>
+    <select id="countTextbookEntriesByName" resultType="java.lang.Integer">
+        select count(*)
+        from textbook
+        where  `name` like concat('%', #{name}, '%')
+    </select>
+    <select id="getAllTextbooks" resultType="com.example.textbooksubscriptionsystem.pojo.Textbook">
+        select *
+        from textbook
+    </select>
+
 </mapper>

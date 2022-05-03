@@ -10,6 +10,7 @@ public class GeneralExceptionHandler {
     @ExceptionHandler(Exception.class)
     @ResponseStatus(HttpStatus.UNAUTHORIZED)
     public String handleUnauthorizedException(Exception ex) {
+        ex.printStackTrace();
         return ex.getMessage();
     }
 }

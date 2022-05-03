@@ -5,6 +5,9 @@ import com.example.textbooksubscriptionsystem.pojo.Textbook;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
+import javax.xml.soap.Text;
+import java.util.ArrayList;
+
 @Repository
 @Mapper
 public interface TextbookRepository {
@@ -14,4 +17,7 @@ public interface TextbookRepository {
     Textbook getTextbookById(Integer id);
 
     Textbook getTextbookByName(String name);
+
+    ArrayList<Textbook> getTextbooksByKey(String key);
+
 }

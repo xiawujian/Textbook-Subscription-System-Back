@@ -47,6 +47,8 @@ public class AccountController {
         if (account == null) {
             throw new Exception("用户名或密码错误");
         } else {
+            StpUtil.login(account.getId());
+            StpUtil.getSession(true).setAttribute("username", username);
             return account;
         }
     }
