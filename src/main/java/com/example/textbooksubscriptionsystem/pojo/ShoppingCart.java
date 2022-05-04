@@ -9,10 +9,14 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class ShoppingCart {
 
-    private Integer userid;
+    private Integer userId;
+
+    private String name;
 
     private Integer textbookId;
 
     private Integer textbookNum;
+
+    private Double price;
 
 }

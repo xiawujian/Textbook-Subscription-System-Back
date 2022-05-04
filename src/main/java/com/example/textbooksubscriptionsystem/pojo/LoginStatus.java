@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 public class LoginStatus {
     private boolean login;
 
-    private Integer userid;
+    private Integer userId;
 
     private String username;
 }

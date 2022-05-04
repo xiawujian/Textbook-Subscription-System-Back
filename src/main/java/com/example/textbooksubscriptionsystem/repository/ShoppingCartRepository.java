@@ -13,7 +13,13 @@ public interface ShoppingCartRepository {
 
     Boolean addShoppingCart(ShoppingCart shoppingCart);
 
-    ShoppingCart getShoppingCartByUserId(Integer userId);
+    ArrayList<ShoppingCart> getShoppingCartByUserId(Integer userId);
 
-    Boolean updateTextbookNum(ShoppingCart shoppingCart);
+    Integer updateTextbookNum(Integer userId, Integer textbookId, Integer textbookNum);
+
+    ShoppingCart getShoppingCartByUserIdAndTextbookId(Integer userId, Integer textbookId);
+
+    Boolean deleteShoppingCart(Integer userId, Integer textbookId);
+
+    ArrayList<ShoppingCart> getShoppingCartByKey(String key);
 }

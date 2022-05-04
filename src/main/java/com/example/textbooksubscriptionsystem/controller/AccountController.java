@@ -5,13 +5,11 @@ import com.example.textbooksubscriptionsystem.pojo.Account;
 import com.example.textbooksubscriptionsystem.pojo.LoginStatus;
 import com.example.textbooksubscriptionsystem.service.AccountService;
 import org.hibernate.validator.constraints.Length;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.HttpClientErrorException;
 
 import javax.annotation.Resource;
 import javax.validation.constraints.NotBlank;
@@ -76,7 +74,7 @@ public class AccountController {
             loginStatus.setLogin(false);
         } else {
             loginStatus.setLogin(true);
-            loginStatus.setUserid(StpUtil.getLoginIdAsInt());
+            loginStatus.setUserId(StpUtil.getLoginIdAsInt());
             loginStatus.setUsername((String) StpUtil.getSession().getAttribute("username"));
         }
         return loginStatus;
