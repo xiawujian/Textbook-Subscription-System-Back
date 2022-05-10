@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.example.textbooksubscriptionsystem.repository.ShoppingOrderRepository">
-    <insert id="addShoppingOrder">
-        insert into shopping_order(user_id, textbook_id,textbook_num,price,start_time,order_status)
-        values (#{userId}, #{textbookId},#{textbookNum},#{price},#{startTime},#{orderStatus});
+    <insert id="addShoppingOrder" useGeneratedKeys="true" keyProperty="id">
+        insert into shopping_order(user_id, textbook_id,textbook_num,`name`,price,start_time,order_status)
+        values (#{userId}, #{textbookId},#{textbookNum},#{name},#{price},#{startTime},#{orderStatus});
     </insert>
     <delete id="deleteShoppingOrder">
         delete

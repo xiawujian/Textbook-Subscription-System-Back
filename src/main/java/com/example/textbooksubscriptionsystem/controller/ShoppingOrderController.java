@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
+import java.util.Date;
 
 @RestController
 @RequestMapping("/order")
@@ -19,11 +20,15 @@ public class ShoppingOrderController {
     ShoppingOrderService shoppingOrderService;
 
     @PostMapping("/add")
-    public Boolean addShoppingOrder(Integer userId,Integer textbookId,Double price,String name){
+    public Boolean addShoppingOrder(Integer userId, Integer textbookId, Integer textbookNum, String name,Double price, Date startTime){
         ShoppingOrder shoppingOrder= new ShoppingOrder();
         shoppingOrder.setUserId(userId);
         shoppingOrder.setTextbookId(textbookId);
+        shoppingOrder.setTextbookNum(textbookNum);
+        shoppingOrder.setName(name);
         shoppingOrder.setPrice(price);
+        shoppingOrder.setStartTime(startTime);
+        shoppingOrder.setOrderStatus(0);
         return shoppingOrderService.addShoppingOrder(shoppingOrder);
     }
     @PostMapping("/show")
