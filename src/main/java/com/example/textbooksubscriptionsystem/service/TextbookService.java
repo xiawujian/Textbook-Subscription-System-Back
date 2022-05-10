@@ -1,14 +1,11 @@
 package com.example.textbooksubscriptionsystem.service;
 
-import com.example.textbooksubscriptionsystem.pojo.Account;
 import com.example.textbooksubscriptionsystem.pojo.Textbook;
-import com.example.textbooksubscriptionsystem.repository.AccountRepository;
 import com.example.textbooksubscriptionsystem.repository.TextbookRepository;
 import org.springframework.stereotype.Service;
-
 import javax.annotation.Resource;
 import java.util.ArrayList;
-import java.util.regex.Pattern;
+
 
 @Service
 public class TextbookService {

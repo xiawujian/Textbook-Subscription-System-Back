@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 
@@ -28,11 +29,13 @@ public class AccountController {
                            @NotBlank(message = "用户名不能为空") String username,
                            @Pattern(regexp = "^[A-Za-z0-9]+$", message = "密码只能含有数字或字母")
                            @Length(min = 6, max = 16, message = "密码长度必须在6到16位之间")
-                           @NotBlank(message = "密码不能为空") String password, Model model) throws Exception {
+                           @NotBlank(message = "密码不能为空") String password,
+                           @Email(message = "邮箱格式不正确")
+                           @NotBlank(message = "邮箱不能为空") String email,Model model) throws Exception {
         if (accountService.existUsername(username)) {
             throw new Exception("该用户名已被注册");
         }
-        if (accountService.userRegister(username, password)) {
+        if (accountService.userRegister(username, password,email)) {
             return "注册成功";
         } else {
             throw new Exception("注册失败");

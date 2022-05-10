@@ -1,9 +1,7 @@
 package com.example.textbooksubscriptionsystem.service;
 
 import com.example.textbooksubscriptionsystem.pojo.ShoppingCart;
-import com.example.textbooksubscriptionsystem.pojo.Textbook;
 import com.example.textbooksubscriptionsystem.repository.ShoppingCartRepository;
-import com.example.textbooksubscriptionsystem.repository.TextbookRepository;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

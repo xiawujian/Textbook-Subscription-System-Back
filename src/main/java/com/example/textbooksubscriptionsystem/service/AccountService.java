@@ -23,10 +23,11 @@ public class AccountService {
         return accountRepository.getAccountByUsername(username) != null;
     }
 
-    public boolean userRegister(String username, String password) {
+    public boolean userRegister(String username, String password,String email) {
         Account userAccount = new Account();
         userAccount.setUsername(username);
         userAccount.setPassword(password);
+        userAccount.setEmail(email);
         return accountRepository.addAccount(userAccount);
     }
 
