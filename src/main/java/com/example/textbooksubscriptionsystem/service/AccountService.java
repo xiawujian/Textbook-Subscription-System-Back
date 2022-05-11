@@ -31,6 +31,7 @@ public class AccountService {
         return accountRepository.addAccount(userAccount);
     }
 
+
     public Account getUserInfo(Integer id) {
         return accountRepository.getAccountById(id);
     }

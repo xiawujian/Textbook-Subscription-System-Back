@@ -24,10 +24,21 @@ public class TextbookService {
         return textbookRepository.getTextbookByName(name) != null;
     }
 
-    public boolean addTextbook(String name, Double price) {
+    public boolean addTextbook(String name, Double price,Integer teacherId,String authorName,String publisher) {
         Textbook textbook = new Textbook();
         textbook.setName(name);
         textbook.setPrice(price);
+        textbook.setTeacherId(teacherId);
+        textbook.setAuthorName(authorName);
+        textbook.setPublisher(publisher);
         return textbookRepository.addTextbook(textbook);
+    }
+
+    public ArrayList<Textbook> getTextbookEntriesByTeacherId(Integer teacherId) {
+        return textbookRepository.getTextbookEntriesByTeacherId(teacherId);
+    }
+
+    public Textbook getTextbooksById(Integer textbookId) {
+        return textbookRepository.getTextbookById(textbookId);
     }
 }

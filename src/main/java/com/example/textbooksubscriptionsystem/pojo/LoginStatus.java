@@ -13,4 +13,6 @@ public class LoginStatus {
     private Integer userId;
 
     private String username;
+
+    private Integer role;
 }

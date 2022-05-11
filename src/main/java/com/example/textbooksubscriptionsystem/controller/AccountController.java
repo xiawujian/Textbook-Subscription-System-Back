@@ -62,7 +62,6 @@ public class AccountController {
     @PostMapping("/info")
     public Account info(Integer id)throws Exception{
         Account account=accountService.getUserInfo(id);
-
         if(account==null){
             throw new Exception("未知错误");
         }
@@ -76,7 +75,9 @@ public class AccountController {
         if (!StpUtil.isLogin()) {
             loginStatus.setLogin(false);
         } else {
+            Account account=accountService.getUserInfo(StpUtil.getLoginIdAsInt());
             loginStatus.setLogin(true);
+            loginStatus.setRole(account.getRole());
             loginStatus.setUserId(StpUtil.getLoginIdAsInt());
             loginStatus.setUsername((String) StpUtil.getSession().getAttribute("username"));
         }

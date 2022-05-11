@@ -15,4 +15,10 @@ public class Textbook {
 //    private String description;
 
     private Double price;
+
+    private Integer teacherId;
+
+    private String authorName;
+
+    private String publisher;
 }

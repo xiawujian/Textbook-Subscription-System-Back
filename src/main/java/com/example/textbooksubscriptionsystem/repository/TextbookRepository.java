@@ -20,4 +20,5 @@ public interface TextbookRepository {
 
     ArrayList<Textbook> getTextbooksByKey(String key);
 
+    ArrayList<Textbook> getTextbookEntriesByTeacherId(Integer teacherId);
 }
