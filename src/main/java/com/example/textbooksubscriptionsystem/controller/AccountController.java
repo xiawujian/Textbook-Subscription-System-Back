@@ -3,6 +3,7 @@ package com.example.textbooksubscriptionsystem.controller;
 import cn.dev33.satoken.stp.StpUtil;
 import com.example.textbooksubscriptionsystem.pojo.Account;
 import com.example.textbooksubscriptionsystem.pojo.LoginStatus;
+import com.example.textbooksubscriptionsystem.pojo.ShoppingOrder;
 import com.example.textbooksubscriptionsystem.service.AccountService;
 import org.hibernate.validator.constraints.Length;
 import org.springframework.ui.Model;
@@ -15,6 +16,7 @@ import javax.annotation.Resource;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
+import java.util.ArrayList;
 
 @RestController
 @RequestMapping("/account")
@@ -82,5 +84,9 @@ public class AccountController {
             loginStatus.setUsername((String) StpUtil.getSession().getAttribute("username"));
         }
         return loginStatus;
+    }
+    @GetMapping("/search")
+    public ArrayList<Account> getAccountByKey(@Length(max = 40, message = "搜索关键字长度要在0到40之间") String key) {
+        return accountService.getAccountByKey(key);
     }
 }

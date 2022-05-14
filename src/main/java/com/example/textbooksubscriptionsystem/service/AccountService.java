@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 
 @Service
 public class AccountService {
@@ -46,4 +47,7 @@ public class AccountService {
     }
 
 
+    public ArrayList<Account> getAccountByKey(String key) {
+        return accountRepository.getAccountByKey(key);
+    }
 }

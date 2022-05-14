@@ -20,4 +20,9 @@
         from account
         where id = #{id}
     </select>
+    <select id="getAccountByKey" resultType="com.example.textbooksubscriptionsystem.pojo.Account">
+        select *
+        from account
+        where  username like concat('%', #{key}, '%')
+    </select>
 </mapper>
