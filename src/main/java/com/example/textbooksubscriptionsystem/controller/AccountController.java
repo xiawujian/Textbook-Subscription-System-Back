@@ -33,11 +33,16 @@ public class AccountController {
                            @Length(min = 6, max = 16, message = "密码长度必须在6到16位之间")
                            @NotBlank(message = "密码不能为空") String password,
                            @Email(message = "邮箱格式不正确")
-                           @NotBlank(message = "邮箱不能为空") String email,Model model) throws Exception {
+                           @NotBlank(message = "邮箱不能为空") String email,
+                           Integer role,Model model) throws Exception {
+
         if (accountService.existUsername(username)) {
             throw new Exception("该用户名已被注册");
         }
-        if (accountService.userRegister(username, password,email)) {
+        if(username.length()==0||password.length()==0||email.length()==0){
+            throw new Exception("必填项不能为空！");
+        }
+        if (accountService.userRegister(username, password,email,role)) {
             return "注册成功";
         } else {
             throw new Exception("注册失败");
@@ -47,6 +52,9 @@ public class AccountController {
     @PostMapping("/login")
     public Account login(@NotBlank(message = "用户名不能为空") String username, @NotBlank(message = "密码不能为空") String password) throws Exception {
         Account account = accountService.authenticate(username, password);
+        if(username.length()==0||password.length()==0){
+            throw new Exception("用户名或密码不能为空！");
+        }
         if (account == null) {
             throw new Exception("用户名或密码错误");
         } else {

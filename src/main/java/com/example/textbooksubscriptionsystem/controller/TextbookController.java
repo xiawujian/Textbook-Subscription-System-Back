@@ -30,6 +30,9 @@ public class TextbookController {
         if (textbookService.existName(name)) {
             throw new Exception("该书本已存在！");
         }
+        if(name.length()==0||price==null||authorName.length()==0||publisher.length()==0){
+            throw new Exception("必填项不能为空！");
+        }
         if (textbookService.addTextbook(name, price,teacherId,authorName,publisher)) {
             return "添加成功";
         } else {
